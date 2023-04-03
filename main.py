@@ -15,9 +15,11 @@ def main_func():
     return render_template("index.html",var_to_insert="this is a flask variable")
     # funtion to demo dynamicity of the flask html template
 
-@app.route('/recommend')
+@app.post('/recommend')
 def predict():
-    test = get_recommendations('Startup-1').tolist()
+    data = request.get_json()
+    category = data["category"]
+    test = get_recommendations(category).tolist()
     arr = []
     for i in range(1,len(test)+1):
         arr.append(i)
@@ -27,7 +29,6 @@ def predict():
     print(dictionary)
 
     return json.dumps(dictionary)
-
 
 
 @app.route('/form', methods=["POST", "GET"])
