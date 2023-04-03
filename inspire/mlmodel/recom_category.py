@@ -10,7 +10,7 @@ Original file is located at
 import numpy as np 
 import pandas as pd
 
-dataset = pd.read_csv("posts.csv")
+dataset = pd.read_csv("inspire/mlmodel/posts.csv")
 
 dataset.head()
 
